@@ -1,0 +1,68 @@
+### create admin
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "name" : "admin",
+    "email" : "admin@gmail.com",
+    "password" : "admin123",
+    "role" : "admin"
+}
+
+### create doctor
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "name" : "mihir",
+    "email" : "m07@gmail.com",
+    "password" : "m123",
+    "role" : "doctor",
+    "specialization" : "heart"
+}
+
+### login
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "email" : "admin@gmail.com",
+    "password" : "admin123"
+}
+
+###get doctors
+GET http://localhost:5000/api/user/doctors
+
+###slot create
+POST http://localhost:5000/api/app/add
+Content-Type: application/json
+
+{
+    "doctor" : "6ae64b9fdaa586ac12ab0a8b",
+    "date" : "2026-10-15",
+    "time" : "10:00"
+}
+
+### doctor Schedule
+GET http://localhost:5000/api/app/schedule/6ae64b9fdaa586ac12ab0a8b/2026-11-19
+
+### search doctor by name
+GET http://localhost:5000/api/user/searchdoctor/mihir
+
+### book appointment
+PUT  http://localhost:5000/api/app/book/6ae65575b0bf58b95ee2e3ff
+Content-Type: application/json
+
+{
+    "patient" : "6ae64889feb094c53319c373",
+    "illness" : "fever"
+}
+
+### get available slot
+GET http://localhost:5000/api/app/getslot/6ae64b9fdaa586ac12ab0a8b/2026-11-19
+
+### get history
+GET http://localhost:5000/api/app/history/6ae64889feb094c53319c373
+
+### cancel
+PUT http://localhost:5000/api/app/cancel/6ae658f2b0bf58b95ee2e403
